@@ -1,0 +1,10 @@
+Package: text.pack
+Title: Text Mining Aid
+Version: 0.0.0.9000
+Authors@R: person("Sophie", "Haynes", email = "thesophienator96@gmail.com", role = c("aut", "cre"))
+Description: This package is a collection of functions I use while handling text data.
+Depends: R (>= 3.4.0)
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1.9000
