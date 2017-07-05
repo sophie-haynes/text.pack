@@ -21,3 +21,4 @@ Sophie C Haynes, \email{thesophienator96@gmail.com}
 \keyword{punctuation}
 \keyword{textmine}
 \keyword{tm}
+\keyword{tm::tm_map()}

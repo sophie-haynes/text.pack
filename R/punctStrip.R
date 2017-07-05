@@ -4,17 +4,16 @@
 #' @param corpus Corpus object.
 #' @author Sophie C Haynes, \email{thesophienator96@@gmail.com}
 #' @keywords tm textmine punctuation
-#' @import
-#' tm::tm_map
+#' tm::tm_map()
+#' @export
 #' @examples
 #' punctStrip(text.corpus)
 
 punctStrip <- function(corpus){
     # base funtion to replace identified punctuation with space
     toSpace <- content_transformer(function (x , pattern ) {
-        gsub(pattern, " ", x)
-        }
-    )
+     gsub(pattern, " ", x)
+     })    
     corpus <- tm_map(corpus, toSpace, "\\/")
     corpus <- tm_map(corpus, toSpace, "\\,")
     corpus <- tm_map(corpus, toSpace, "\\.")
