@@ -11,6 +11,7 @@ library(text.pack)
 ### `punctStrip()`
 * For stripping punctuation from a corpus object. Pass the corpus as parameter.
 
-*License: MIT*
+* **License:** MIT*
 
-*Author: Sophie Haynes*
+* **Author:** Sophie Haynes*
+
