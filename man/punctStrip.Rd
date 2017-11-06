@@ -10,7 +10,8 @@ punctStrip(corpus)
 \item{corpus}{Corpus object.}
 }
 \description{
-This function strips punctuation from a corpus object.
+This function strips punctuation from a corpus object. It will also
+remove all numerics and make the corpus lowercase.
 }
 \examples{
 punctStrip(text.corpus)
@@ -18,7 +19,9 @@ punctStrip(text.corpus)
 \author{
 Sophie C Haynes, \email{thesophienator96@gmail.com}
 }
+\keyword{nlp}
 \keyword{punctuation}
+\keyword{strip}
 \keyword{textmine}
 \keyword{tm}
 \keyword{tm::tm_map()}
