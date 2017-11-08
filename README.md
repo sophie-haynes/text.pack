@@ -14,8 +14,9 @@ library(text.pack)
 ### `grammar()`
 * Applies stemming to a corpus object. Requires the corpus as parameter.
 
+----------------------------------------------------
 
-* **License:** MIT*
+***License:** MIT *
 
-* **Author:** Sophie Haynes*
+***Author:** Sophie Haynes *
 
