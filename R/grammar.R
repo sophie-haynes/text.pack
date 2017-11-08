@@ -18,32 +18,40 @@
 
 grammar <- function(corpus){
   # convert corpus to data table object
-  text.table <- data.table(
-    text = sapply(corpus, paste, collapse = " "),
-    lemma = NA
-    )
-
-	#Loop through each line
-  for(i in 1:nrow(text.table)){
-    #Tokenise line
-    words <- as.vector(strsplit(as.character(text.table[i,])," ")[[1]])
-    #Treetag each word
-    tagged <- suppressWarnings(treetag(
-        format="obj",
-        words, 
-        treetagger="manual",
-        lang="en", 
-        TT.options=list(
-            path="~/TreeTagger",
-            preset="en")                    
-    ))
-    #Make new string from lemma
-    string <- paste(c(taggedText(tagged)$lemma),collapse=" ")
-    #clean unknowns from string
-    string <- str_replace_all(string,"<unknown>","")
-    #Replace with tagged
-    text.table$lemma[i] = string
-  }
+  #Loop through each line
+for(i in 1:nrow(text.table)){
+    tryCatch({
+        #Tokenise line
+        words <- as.vector(strsplit(as.character(text.table[i,])," ")[[1]])
+        #Treetag each word
+        tagged <- suppressWarnings(treetag(
+            format="obj",
+            words, 
+            treetagger="manual",
+            lang="en", 
+            TT.options=list(
+                path="~/TreeTagger",
+                preset="en")                    
+        ))
+        #Make new string from lemma
+        string <- paste(c(taggedText(tagged)$lemma),collapse=" ")
+        #clean unknowns from string
+        string <- str_replace_all(string,"<unknown>","")
+        #Replace with tagged
+        text.table$lemma[i] = string
+    }, 
+    warning = function(w){
+        print(paste("\nMY_WARNING:  ",w))
+    }, 
+    error = function(e){
+        print("Oh no! I had an error!")
+        print(paste(e))
+        string = words
+    },
+    finally = {
+        text.table$lemma[i] = string
+    })
+}
   text.table
   #ßreturn(text.table)
 }
