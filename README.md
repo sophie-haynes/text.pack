@@ -16,7 +16,7 @@ library(text.pack)
 
 ----------------------------------------------------
 
-***License:** MIT *
+***License:**  MIT*
 
-***Author:** Sophie Haynes *
+***Author:** Sophie Haynes*
 
