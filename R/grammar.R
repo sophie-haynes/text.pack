@@ -18,6 +18,10 @@
 
 grammar <- function(corpus){
   # convert corpus to data table object
+  text.table <- data.table(
+    text = sapply(corpus, paste, collapse = " "),
+    lemma = NA
+    )
   #Loop through each line
 for(i in 1:nrow(text.table)){
     tryCatch({
