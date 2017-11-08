@@ -9,9 +9,14 @@ library(text.pack)
 ```
 ## Functions
 ### `punctStrip()`
-* For stripping punctuation from a corpus object. Pass the corpus as parameter.
+* Strips punctuation from a corpus object. Requires the corpus as a parameter.
 
-* **License:** MIT*
+### `grammar()`
+* Applies stemming to a corpus object. Requires the corpus as parameter.
 
-* **Author:** Sophie Haynes*
+----------------------------------------------------
+
+***License:**  MIT*
+
+***Author:** Sophie Haynes*
 
