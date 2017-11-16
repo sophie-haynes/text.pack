@@ -20,7 +20,7 @@ grammar <- function(corpus){
   # convert corpus to data table object
   text.table <- data.table(
     text = sapply(corpus, paste, collapse = " "),
-    lemma = NA
+    clean = NA
     )
   #Loop through each line
 for(i in 1:nrow(text.table)){
@@ -37,12 +37,19 @@ for(i in 1:nrow(text.table)){
                 path="~/TreeTagger",
                 preset="en")                    
         ))
-        #Make new string from lemma
-        string <- paste(c(taggedText(tagged)$lemma),collapse=" ")
-        #clean unknowns from string
-        string <- str_replace_all(string,"<unknown>","")
-        #Replace with tagged
-        text.table$lemma[i] = string
+        table = taggedText(tagged)
+        table$new = NA
+        for(i in 1:nrow(table)){
+            if(table[i,]$lemma == "<unknown>"){
+                table[i,]$new = table[i,]$token
+            } else{
+                table[i,]$new = table[i,]$lemma
+            }
+        }
+
+        #Make new string from cleaned text
+        string <- paste(c(table$new),collapse=" ")
+        text.table[i]$ = 
     }, 
     warning = function(w){
         print(paste("\nMY_WARNING:  ",w))
@@ -53,7 +60,7 @@ for(i in 1:nrow(text.table)){
         string = words
     },
     finally = {
-        text.table$lemma[i] = string
+        text.table$clean[i] = string
     })
 }
   text.table
