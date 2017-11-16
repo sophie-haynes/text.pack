@@ -51,12 +51,16 @@ for(i in 1:nrow(text.table)){
         string <- paste(c(table$new),collapse=" ")
     }, 
     warning = function(w){
+        print("Warning")
+        print(i)
         print(paste("\nMY_WARNING:  ",w))
     }, 
     error = function(e){
         print("Oh no! I had an error!")
+        print(i)
         print(paste(e))
         string = words
+
     },
     finally = {
         text.table$clean[i] = string
