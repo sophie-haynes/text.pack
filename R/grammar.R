@@ -49,7 +49,6 @@ for(i in 1:nrow(text.table)){
 
         #Make new string from cleaned text
         string <- paste(c(table$new),collapse=" ")
-        text.table[i]$ = 
     }, 
     warning = function(w){
         print(paste("\nMY_WARNING:  ",w))
