@@ -39,11 +39,11 @@ for(i in 1:nrow(text.table)){
         ))
         table = taggedText(tagged)
         table$new = NA
-        for(i in 1:nrow(table)){
-            if(table[i,]$lemma == "<unknown>"){
-                table[i,]$new = table[i,]$token
+        for(j in 1:nrow(table)){
+            if(table[j,]$lemma == "<unknown>"){
+                table[j,]$new = table[j,]$token
             } else{
-                table[i,]$new = table[i,]$lemma
+                table[j,]$new = table[j,]$lemma
             }
         }
 
