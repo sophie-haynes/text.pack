@@ -19,8 +19,7 @@
 grammar <- function(corpus){
   # convert corpus to data table object
   text.table <- data.table(
-    text = sapply(corpus, paste, collapse = " "),
-    clean = NA
+    text = sapply(corpus, paste, collapse = " ")
     )
   #Loop through each line
 for(i in 1:nrow(text.table)){
@@ -63,7 +62,7 @@ for(i in 1:nrow(text.table)){
 
     },
     finally = {
-        text.table$clean[i] = string
+        text.table$clean_treetag[i] = string
     })
 }
   text.table
