@@ -12,11 +12,14 @@
 #' korRus::taggedText()
 #' stringr::str_replace_all()
 #' data.table::data.table()
+#' tm::tm_map()
 #' @export
 #' @examples
 #' grammar(text.corpus)
 
 grammar <- function(corpus){
+    # remove stopwords from corpus
+    corpus <- tm_map(corpus, removeWords, stopwords())
     # convert corpus to data table object
     text.table <- data.table(
         text = sapply(corpus, as.character)
